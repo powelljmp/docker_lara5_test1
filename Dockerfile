@@ -9,6 +9,12 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Maintaner Name
 
+RUN mkdir -p /data
+VOLUME ["/data"]
+
+
+
+
 # Install Nginx
 # Add application repository URL to the default sources
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
@@ -80,3 +86,4 @@ EXPOSE 80
 # Set the default command to execute
 # when creating a new container
 CMD service nginx start
+CMS service php5-fpm restart
