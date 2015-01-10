@@ -26,7 +26,7 @@ RUN apt-get install -y nano
 RUN apt-get install -y nginx
 
 # Downlad and Install GIT
-RUN apt-get install git
+RUN apt-get install -y git
 
 
 # Install PHP-FPM and popular/laravel required extensions
