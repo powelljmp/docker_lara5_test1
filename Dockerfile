@@ -30,7 +30,7 @@ RUN apt-get install -y git
 
 
 # Install PHP-FPM and popular/laravel required extensions
-RUN apt-get install -y && \
+RUN apt-get install -y \
     php5-fpm \
     php5-curl \
     php5-gd \
