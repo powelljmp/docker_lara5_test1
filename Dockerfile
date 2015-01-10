@@ -26,7 +26,8 @@ RUN apt-get install -y nano
 RUN apt-get install -y nginx
 
 # Downlad and Install GIT
-RUN apt-get install git-core
+RUN apt-get install git
+
 
 # Install PHP-FPM and popular/laravel required extensions
 RUN apt-get install -y && \
@@ -50,7 +51,6 @@ RUN apt-get install -y && \
     php5-xdebug \
     php5-xmlrpc \
     php5-xcache
-
 
 
 
