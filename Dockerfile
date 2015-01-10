@@ -52,12 +52,11 @@ RUN apt-get install -y \
     php5-pgsql \    
     php5-sqlite \
     php5-xdebug \
-    php5-xmlrpc \
-    php5-mongo \
-    php5-redis \
+    php5-xmlrpc \   
     php5-xcache
 
-
+# php5-mongo \
+# php5-redis \
 
 
 
