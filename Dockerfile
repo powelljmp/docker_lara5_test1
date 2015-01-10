@@ -41,15 +41,15 @@ RUN apt-get install -y \
     php5-ldap \
     php5-mcrypt \
     php5-memcache \
-    php5-memcached \
-    php5-mongo \
+    php5-memcached \    
     php5-mssql \
     php5-mysqlnd \
-    php5-pgsql \
-    php5-redis \
+    php5-pgsql \    
     php5-sqlite \
     php5-xdebug \
     php5-xmlrpc \
+    php5-mongo \
+    php5-redis \
     php5-xcache
 
 
