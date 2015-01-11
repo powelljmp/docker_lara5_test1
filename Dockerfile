@@ -77,6 +77,11 @@ ADD /configs/nginx.conf /etc/nginx/
 # Append "daemon off;" to the beginning of the configuration
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
+###################################################
+
+RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
+
+###################################################
 
 # Expose ports
 EXPOSE 80
