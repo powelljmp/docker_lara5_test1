@@ -9,7 +9,7 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Maintaner Name
 
-VOLUME  ["/var/log"]
+#VOLUME  ["/var/log"]
 
 
 # Install Nginx
@@ -91,5 +91,5 @@ EXPOSE 80
  
 # Set the default command to execute
 # when creating a new container
-CMS service php5-fpm start
+CMS service php5-fpm restart
 CMD service nginx start
