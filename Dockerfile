@@ -4,7 +4,7 @@
 ############################################################
 
 # Set the base image to Ubuntu #:14.04
-FROM ubuntu
+FROM ubuntu:14.04
 
 # File Author / Maintainer
 MAINTAINER Maintaner Name
@@ -60,9 +60,8 @@ RUN apt-get install -y \
     php5-xcache
     
     
-RUN apt-get update -y
-RUN apt-get upgrade -y 
-   
+#RUN apt-get update -y
+#RUN apt-get upgrade -y   
 
 #RUN apt-get install -y php5-mongo
 #RUN apt-get install -y php5-redis
@@ -90,7 +89,7 @@ RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 
 RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
 
-RUN sed -i 's/^\;error_log\s*=\s*syslog\s*$/error_log = \/var\/log\/php5\/cgi.log/' /etc/php5/fpm/php.ini
+#RUN sed -i 's/^\;error_log\s*=\s*syslog\s*$/error_log = \/var\/log\/php5\/cgi.log/' /etc/php5/fpm/php.ini
 
 ###################################################
 
