@@ -9,10 +9,8 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Maintaner Name
 
-RUN mkdir -p /data
-VOLUME ["/data"]
-
-
+#RUN mkdir -p /data
+#VOLUME ["/data"]
 
 
 # Install Nginx
