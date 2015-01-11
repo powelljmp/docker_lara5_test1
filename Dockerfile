@@ -40,6 +40,7 @@ RUN apt-get install -y git
 # Install PHP-FPM and popular/laravel required extensions
 RUN apt-get install -y \
     curl \
+    php5-cli \
     php5-fpm \
     php5-curl \
     php5-gd \
@@ -91,9 +92,9 @@ RUN rm -v /etc/php5/fpm/pool.d/www.conf
 ###################################################
 
 
-
-RUN curl -sS https://getcomposer.org/installer | php 
-#mv composer.phar /usr/local/bin/composer && \
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php \
+        && mv composer.phar /usr/local/bin/composer
 
 
 ###################################################
