@@ -3,8 +3,8 @@
 # Based on Ubuntu
 ############################################################
 
-# Set the base image to Ubuntu
-FROM ubuntu:14.04
+# Set the base image to Ubuntu #:14.04
+FROM ubuntu
 
 # File Author / Maintainer
 MAINTAINER Maintaner Name
