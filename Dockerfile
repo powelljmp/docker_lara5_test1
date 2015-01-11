@@ -23,7 +23,7 @@ RUN apt-get upgrade
 ###################################################
 
 # Install necessary tools
-RUN apt-get install -y nano 
+#RUN apt-get install -y nano 
 #wget dialog net-tools
 
 # Download and Install Nginx
@@ -59,8 +59,10 @@ RUN apt-get install -y \
     php5-xmlrpc \   
     php5-xcache
     
-RUN apt-get upgrade    
-RUN apt-get update    
+    
+RUN apt-get update -y
+RUN apt-get upgrade -y 
+   
 
 RUN apt-get install -y php5-mongo
 RUN apt-get install -y php5-redis
