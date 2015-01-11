@@ -9,12 +9,17 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Maintaner Name
 
-#VOLUME  ["/var/log"]
-
-
-# Install Nginx
-# Add application repository URL to the default sources
+## ADD Nginx
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+
+## ADD PHP 5.6.2
+#RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
+
+## ADD PHP5.4 REPOSITORY
+RUN echo "deb http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu precise main " > /etc/apt/sources.list.d/ondrej.list 
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
+
 
 # Update the repository
 RUN apt-get update
@@ -31,12 +36,6 @@ RUN apt-get install -y nginx
 
 # Downlad and Install GIT
 RUN apt-get install -y git
-
-
-#Install PHP 5.6.2
-RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
-
 
 # Install PHP-FPM and popular/laravel required extensions
 RUN apt-get install -y \
