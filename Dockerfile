@@ -92,8 +92,8 @@ RUN rm -v /etc/php5/fpm/pool.d/www.conf
 
 
 
-RUN curl -sS https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer && \
+RUN curl -sS https://getcomposer.org/installer | php 
+#mv composer.phar /usr/local/bin/composer && \
 
 
 ###################################################
