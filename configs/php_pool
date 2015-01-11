@@ -1,7 +1,9 @@
 [laravel] 
 listen = /var/run/php5-fpm.sock
-listen.owner = nginx
-listen.group = nginx
+
+listen.owner = www-data
+listen.group = www-data
+listen.mode = 0660
 
 
 pm = dynamic

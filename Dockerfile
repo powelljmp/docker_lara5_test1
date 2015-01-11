@@ -23,7 +23,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C
 
 # Update the repository
 RUN apt-get update
-#RUN apt-get upgrade
+RUN apt-get upgrade -y
 
 ###################################################
 
@@ -81,12 +81,10 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 
-#RUN echo "listen = /var/run/php5-fpm.sock" >> /etc/php5/fpm/pool.d/www.conf
 # Set up php fpm, restart php
-#ADD /configs/php_pool /etc/php5/fpm/pool.d/default.conf
+ADD /configs/php_pool /etc/php5/fpm/pool.d/default.conf
 
-
-RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
+#RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
 
 #RUN sed -i 's/^\;error_log\s*=\s*syslog\s*$/error_log = \/var\/log\/php5\/cgi.log/' /etc/php5/fpm/php.ini
 
