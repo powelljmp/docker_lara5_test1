@@ -1,4 +1,4 @@
-[laravel] 
+[www-data] 
 listen = /var/run/php5-fpm.sock
 
 listen.owner = www-data
