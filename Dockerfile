@@ -34,8 +34,8 @@ RUN apt-get install -y git
 
 
 #Install PHP 5.6.2
-#RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
-#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
+RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
 
 
 # Install PHP-FPM and popular/laravel required extensions
