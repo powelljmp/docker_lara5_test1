@@ -64,7 +64,7 @@ RUN apt-get update -y
 RUN apt-get upgrade -y 
    
 
-RUN apt-get install -y php5-mongo
+#RUN apt-get install -y php5-mongo
 RUN apt-get install -y php5-redis
 
 
