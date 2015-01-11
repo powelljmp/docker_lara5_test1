@@ -39,6 +39,7 @@ RUN apt-get install -y git
 
 # Install PHP-FPM and popular/laravel required extensions
 RUN apt-get install -y \
+    curl \
     php5-fpm \
     php5-curl \
     php5-gd \
@@ -84,11 +85,20 @@ RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 # Set up php fpm, restart php
 ADD /configs/php_pool /etc/php5/fpm/pool.d/default.conf
 
-#RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
-
-#RUN sed -i 's/^\;error_log\s*=\s*syslog\s*$/error_log = \/var\/log\/php5\/cgi.log/' /etc/php5/fpm/php.ini
+# Remove default
+RUN rm -v /etc/php5/fpm/pool.d/www.conf
 
 ###################################################
+
+
+
+RUN curl -sS https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer && \
+
+
+###################################################
+
+
 
 # Expose ports
 EXPOSE 80
