@@ -18,7 +18,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 
 # Update the repository
 RUN apt-get update
-RUN apt-get upgrade
+#RUN apt-get upgrade
 
 ###################################################
 
@@ -61,8 +61,7 @@ RUN apt-get install -y \
     
     
 #RUN apt-get update -y
-#RUN apt-get upgrade -y   
-
+#RUN apt-get upgrade -y  
 #RUN apt-get install -y php5-mongo
 #RUN apt-get install -y php5-redis
 
@@ -82,6 +81,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 ###################################################
 
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
+
 #RUN echo "listen = /var/run/php5-fpm.sock" >> /etc/php5/fpm/pool.d/www.conf
 # Set up php fpm, restart php
 #ADD /configs/php_pool /etc/php5/fpm/pool.d/default.conf
@@ -98,5 +98,8 @@ EXPOSE 80
  
 # Set the default command to execute
 # when creating a new container
-CMD service nginx start
-CMD service php5-fpm start
+#CMD service nginx start
+#CMD service php5-fpm start
+
+
+CMD service php5-fpm start && nginx
