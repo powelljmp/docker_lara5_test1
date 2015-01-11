@@ -18,6 +18,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 
 # Update the repository
 RUN apt-get update
+RUN apt-get upgrade
 
 ###################################################
 
@@ -33,8 +34,8 @@ RUN apt-get install -y git
 
 
 #Install PHP 5.6.2
-RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
+#RUN echo "deb http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu trusty main" >> /etc/apt/sources.list
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key E5267A6C
 
 
 # Install PHP-FPM and popular/laravel required extensions
@@ -57,11 +58,11 @@ RUN apt-get install -y \
     php5-xdebug \
     php5-xmlrpc \   
     php5-xcache
+    
+RUN apt-get update    
 
-# php5-mongo \
-# php5-redis \
-
-
+RUN apt-get install -y php5-mongo
+RUN apt-get install -y php5-redis
 
 
 ###################################################
@@ -86,7 +87,7 @@ RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
 
 RUN sed -i -e 's/^listen =.*/listen = \/var\/run\/php5-fpm.sock/' /etc/php5/fpm/pool.d/www.conf
 
-
+RUN sed -i 's/^\;error_log\s*=\s*syslog\s*$/error_log = \/var\/log\/php5\/cgi.log/' /etc/php5/fpm/php.ini
 
 ###################################################
 
@@ -95,5 +96,5 @@ EXPOSE 80
  
 # Set the default command to execute
 # when creating a new container
-CMS service php5-fpm restart
 CMD service nginx start
+CMD service php5-fpm start
